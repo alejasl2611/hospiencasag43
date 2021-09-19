@@ -5,13 +5,13 @@ namespace HospiEnCasa.App.Persistencia
     public class AppContext : DbContext
     {
         public DbSet<Persona> Personas{get; set;}
-        public DbSet<Persona> Pacientes{get; set;}
-        public DbSet<Persona> Medicos{get; set;}
-        public DbSet<Persona> Enfermeras{get; set;}
-        public DbSet<Persona> FamiliaresDesignados{get; set;}
-        public DbSet<Persona> SignosVitales{get; set;}
-        public DbSet<Persona> Historias{get; set;}
-        public DbSet<Persona> SugerenciasCuidado{get; set;}
+        public DbSet<Paciente> Pacientes{get; set;}
+        public DbSet<Medico> Medicos{get; set;}
+        public DbSet<Enfermera> Enfermeras{get; set;}
+        public DbSet<FamiliarDesignado> FamiliaresDesignados{get; set;}
+        public DbSet<SignoVital> SignosVitales{get; set;}
+        public DbSet<Historia> Historias{get; set;}
+        public DbSet<SugerenciaCuidado> SugerenciasCuidado{get; set;}
         protected override void OnConfiguring(DbContextOptionsBuilder optionBuilder)
         {
             if(!optionBuilder.IsConfigured)
