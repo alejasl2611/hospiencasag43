@@ -52,5 +52,21 @@ namespace HospiEnCasa.App.Persistencia
             }
             return pacienteEncontrado;
         }
+
+        Medico IRepositorioPaciente.AsignarMedico(int idPaciente, int idMedico)
+        { 
+            var pacienteEncontrado = _appContext.Pacientes.Find(idPaciente);
+            if (pacienteEncontrado != null)
+            { 
+                var medicoEncontrado = _appContext.Medicos.Find(idMedico);
+                if (medicoEncontrado != null)
+                { 
+                    pacienteEncontrado.Medico = medicoEncontrado;
+                    _appContext.SaveChanges();
+                }
+                return medicoEncontrado;
+            }
+            return null;
+        }
     }
 }
