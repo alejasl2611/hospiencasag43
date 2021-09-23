@@ -8,5 +8,7 @@ namespace HospiEnCasa.App.Persistencia
         Paciente AddPaciente (Paciente paciente);
         IEnumerable<Paciente> GetAllPacientes();
         void DeletePaciente(int idPaciente);
+        Paciente GetPaciente(int idPaciente);
+        Paciente UpdatePaciente(Paciente paciente);
     }
 }
