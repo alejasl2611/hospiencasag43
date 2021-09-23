@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using HospiEnCasa.App.Dominio;
 
 namespace HospiEnCasa.App.Persistencia
@@ -14,6 +15,10 @@ namespace HospiEnCasa.App.Persistencia
             var pacienteAdicionado = _appContext.Pacientes.Add(paciente);
             _appContext.SaveChanges();
             return pacienteAdicionado.Entity;
+        }
+        IEnumerable<Paciente> IRepositorioPaciente.GetAllPacientes()
+        {
+            return _appContext.Pacientes;
         }
     }
 }
