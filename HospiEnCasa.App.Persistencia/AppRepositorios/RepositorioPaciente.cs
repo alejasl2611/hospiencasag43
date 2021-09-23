@@ -20,5 +20,15 @@ namespace HospiEnCasa.App.Persistencia
         {
             return _appContext.Pacientes;
         }
+        public void DeletePaciente(int idPaciente)
+        {
+            var pacienteEncontrado = _appContext.Pacientes.Find(idPaciente);
+            if (pacienteEncontrado == null)
+                return;
+            _appContext.Pacientes.Remove(pacienteEncontrado);
+           //Sincronización base de datos
+            _appContext.SaveChanges();
+ 
+        }
     }
 }
